@@ -1,0 +1,108 @@
+.dashboard-container {
+    background-color: #f0f4f8; /* Light background for contrast */
+    padding: 50px; /* Increased padding for a larger container */
+    border-radius: 15px; /* More rounded corners for a smoother look */
+    max-width: 1000px; /* Increased max width to make the card wider */
+    margin: 50px auto; /* Increased margin to center the container with more space */
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow for a more defined look */
+  }
+  
+  .profile-card {
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #d0d0d0; /* Slightly darker border for better contrast */
+    border-radius: 20px; /* Increased border-radius for more rounded corners */
+    padding: 40px; /* Increased padding inside the card */
+    text-align: center; /* Center text */
+  }
+  
+  .welcome-message {
+    font-size: 32px; /* Larger font size for the welcome message */
+    margin-bottom: 40px; /* More space below the welcome message */
+  }
+  
+  .profile-img {
+    width: 180px; /* Increase the profile image size */
+    height: 180px; /* Fixed height for the profile image */
+    object-fit: cover; /* Ensure the image is fully visible */
+    border-radius: 50%; /* Rounded corners for the image */
+    margin-bottom: 30px; /* More space below the profile image */
+  }
+  
+  .user-details {
+    margin-bottom: 40px; /* Increase space below the user details */
+    font-size: 20px; /* Larger font size for user details */
+  }
+  
+  .button-group {
+    display: flex; /* Use flexbox for button alignment */
+    justify-content: space-around; /* Space buttons evenly */
+    margin-top: 30px; /* Increased space above the buttons */
+  }
+  
+  .update-btn,
+  .logout-btn {
+    padding: 15px 30px; /* Larger padding for bigger buttons */
+    border: none;
+    border-radius: 8px; /* Slightly rounded corners for buttons */
+    font-size: 18px; /* Increased font size for buttons */
+    cursor: pointer; /* Change the cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for background and transform */
+  }
+  
+  /* Hover effects for buttons */
+  .update-btn {
+    background-color: #4CAF50; /* Green background for the update button */
+    color: #ffffff; /* White text for the update button */
+  }
+  
+  .update-btn:hover {
+    background-color: #2500ac; /* Change background color on hover */
+    opacity: 0.85; /* Slightly reduce opacity on hover for feedback */
+    transform: scale(1.05); /* Slightly increase button size on hover */
+  }
+  
+  .logout-btn {
+    background-color: #FF9800; /* Orange background for the logout button */
+    color: #ffffff; /* White text for the logout button */
+  }
+  
+  .logout-btn:hover {
+    background-color: #e01a1a; /* Change background color on hover */
+    opacity: 0.85; /* Slightly reduce opacity on hover for feedback */
+    transform: scale(1.05); /* Slightly increase button size on hover */
+  }
+  
+  /* Optional: Add a focus effect for accessibility */
+  .update-btn:focus,
+  .logout-btn:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Add a shadow for focus state */
+  }
+  
+  /* Media Query for Small Screens */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 25px; /* Reduced padding on small screens */
+      max-width: 100%; /* Full width on smaller screens */
+    }
+  
+    .profile-card {
+      padding: 25px; /* Reduced padding inside the card */
+    }
+  
+    .profile-img {
+      width: 130px; /* Reduced profile image size on small screens */
+      height: 130px; /* Reduced height for profile image */
+    }
+  
+    .button-group {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 20px; /* Space between stacked buttons */
+    }
+  
+    .update-btn,
+    .logout-btn {
+      width: 100%; /* Full width buttons on small screens */
+    }
+  }
+  
