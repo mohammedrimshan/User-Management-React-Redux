@@ -34,7 +34,7 @@ const createUser = async (req, res) => {
             password: hashedPassword,
             mobile,
             image: req.file ? `/uploads/images/${req.file.filename}` : null,
-            is_admin: 0
+            isAdmin: 0
         });
 
         await newUser.save();
@@ -71,7 +71,8 @@ const verifyLogin = async (req, res) => {
             return res.status(401).json({ message: "Invalid email or password" });
         }
 
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '30d' });
+        // Include isAdmin in the JWT token
+        const token = jwt.sign({ id: user._id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '30d' });
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
@@ -112,46 +113,43 @@ const getUserData = async (req, res) => {
 // Logout User
 const userLogout = async (req, res) => {
     try {
-        res.clearCookie('token', {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Lax',
-        });
-        res.status(200).json({ message: 'Logged out successfully' });
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ message: "Server error" });
+      res.clearCookie("token", {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "Lax",
+      });
+      return res.status(200).json({ message: "Logged out successfully" });
+    } catch (err) {
+      console.error("Logout error:", err);
+      return res.status(500).json({ message: "Server error during logout" });
     }
-};
+  };
 
-// Update User
+// Update User (Prevents admins from using this endpoint)
 const updateUser = async (req, res) => {
     try {
-        const { name, email, mobile } = req.body;  // Extract fields from body
-        const { id } = req.params;  // Get id from route params
+        if (req.user.isAdmin) {
+            return res.status(403).json({ message: "Admins cannot update regular user profiles" });
+        }
 
-        // Prepare the updatedData object
+        const { name, email, mobile } = req.body;  
+        const { id } = req.params;  
+
         let updatedData = {};
-
-        // Update fields only if they are provided in the request
         if (name) updatedData.name = name;
         if (email) updatedData.email = email;
         if (mobile) updatedData.mobile = mobile;
 
-        // Check if a new profile image is uploaded
         if (req.file) {
-            updatedData.image = `/uploads/images/${req.file.filename}`;  // Assuming multer stores files in /uploads
+            updatedData.image = `/uploads/images/${req.file.filename}`;
         }
 
-        // Find the user by ID and update the fields
         const updatedUser = await User.findByIdAndUpdate(id, updatedData, { new: true });
 
-        // If the user was not found, return a 404 error
         if (!updatedUser) {
             return res.status(404).json({ message: "User not found" });
         }
 
-        // Return the updated user data
         return res.status(200).json({ message: "User updated successfully", updatedUser });
     } catch (error) {
         console.error(error.message);

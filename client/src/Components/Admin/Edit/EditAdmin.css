@@ -1,0 +1,169 @@
+.modern-edit-container {
+    min-height: 100vh;
+    min-width: 100vw;
+    background: linear-gradient(135deg, #2b2c2e 0%, #000000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modern-edit-wrapper {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+}
+
+.modern-edit-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modern-edit-header h2 {
+    color: #2d3748;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.modern-edit-subtitle {
+    color: #718096;
+    font-size: 16px;
+}
+
+.modern-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modern-image-preview {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.modern-profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modern-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.modern-label {
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.modern-input {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.modern-input:focus {
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+    outline: none;
+}
+
+.modern-file-input-wrapper {
+    position: relative;
+}
+
+.modern-file-input {
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    position: absolute;
+}
+
+.modern-file-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #edf2f7;
+    color: #4a5568;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.modern-file-label:hover {
+    background-color: #e2e8f0;
+}
+
+.modern-submit-btn {
+    background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.modern-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
+.modern-error {
+    color: #e53e3e;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.modern-success-alert {
+    background-color: #48bb78;
+    color: white;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .modern-edit-wrapper {
+        padding: 30px 20px;
+    }
+
+    .modern-edit-header h2 {
+        font-size: 24px;
+    }
+
+    .modern-profile-image {
+        width: 100px;
+        height: 100px;
+    }
+}

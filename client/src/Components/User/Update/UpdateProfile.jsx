@@ -8,11 +8,11 @@ import { updateUser } from '../../../Redux/Slices/userSlice';
 const UpdateProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user.user); // Accessing the user object
+  const user = useSelector(state => state.user.user);
 
-  console.log("Current user state:", user); // Check if user state is populated
+  console.log("Current user state:", user);
 
-  const userId = user?.id; // Ensure you get the user ID
+  const userId = user?.id;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -62,7 +62,6 @@ const UpdateProfile = () => {
     fetchUserData();
   }, [userId, user]);
 
-  // Validate form function
   const validateForm = () => {
     const newErrors = {};
     if (!name.trim()) newErrors.name = "Name is required.";
@@ -73,11 +72,11 @@ const UpdateProfile = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    if (file && file.size > 2 * 1024 * 1024) { // Limit size to 2MB
+    if (file && file.size > 2 * 1024 * 1024) { 
       setErrors({ image: "Image size must be less than 2MB." });
       setProfileImage(null);
     } else {
-      setErrors({}); // Clear image errors if file is valid
+      setErrors({});
       setProfileImage(file);
       setImagePreview(URL.createObjectURL(file));
     }
@@ -121,7 +120,7 @@ const UpdateProfile = () => {
         setShowSuccessAlert(true);
         setTimeout(() => {
           navigate('/dashboard');
-        }, 1500); // Delay for success alert
+        }, 1500);
       } else {
         setErrors({ form: 'Failed to update profile.' });
       }
@@ -133,45 +132,48 @@ const UpdateProfile = () => {
 
   return (
     <div className="update-profile-container">
-      <h1>Update Profile</h1>
-      <p>Current User ID: {userId}</p>
-      {errors.form && <div className="error">{errors.form}</div>}
-      {showSuccessAlert && <div className="success">Profile updated successfully!</div>}
-      <form onSubmit={handleUpdate}>
-        <div className="form-group">
-          <label>Name:</label>
+      <h1 className="update-profile-title">Update Profile</h1>
+      <p className="update-profile-user-id">Current User ID: {userId}</p>
+      {errors.form && <div className="update-profile-error">{errors.form}</div>}
+      {showSuccessAlert && <div className="update-profile-success">Profile updated successfully!</div>}
+      <form className="update-profile-form" onSubmit={handleUpdate}>
+        <div className="update-profile-form-group">
+          <label className="update-profile-label">Name:</label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            className="update-profile-input"
           />
-          {errors.name && <div className="error">{errors.name}</div>}
+          {errors.name && <div className="update-profile-error">{errors.name}</div>}
         </div>
-        <div className="form-group">
-          <label>Email:</label>
+        <div className="update-profile-form-group">
+          <label className="update-profile-label">Email:</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="update-profile-input"
           />
-          {errors.email && <div className="error">{errors.email}</div>}
+          {errors.email && <div className="update-profile-error">{errors.email}</div>}
         </div>
-        <div className="form-group">
-          <label>Mobile Number:</label>
+        <div className="update-profile-form-group">
+          <label className="update-profile-label">Mobile Number:</label>
           <input
             type="text"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
+            className="update-profile-input"
           />
-          {errors.phone && <div className="error">{errors.phone}</div>}
+          {errors.phone && <div className="update-profile-error">{errors.phone}</div>}
         </div>
-        <div className="form-group">
-          <label>Profile Image:</label>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
-          {errors.image && <div className="error">{errors.image}</div>}
+        <div className="update-profile-form-group">
+          <label className="update-profile-label">Profile Image:</label>
+          <input type="file" accept="image/*" onChange={handleImageChange} className="update-profile-input" />
+          {errors.image && <div className="update-profile-error">{errors.image}</div>}
         </div>
-        {imagePreview && <img src={imagePreview} alt="Profile Preview" className="image-preview" />}
-        <button type="submit">Update Profile</button>
+        {imagePreview && <img src={imagePreview} alt="Profile Preview" className="update-profile-image-preview" />}
+        <button type="submit" className="update-profile-button">Update Profile</button>
       </form>
     </div>
   );

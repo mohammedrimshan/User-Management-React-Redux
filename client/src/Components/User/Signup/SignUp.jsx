@@ -132,9 +132,8 @@ const AuthPage = () => {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading state
+    setLoading(true);
   
-    // Validate form inputs
     const validationErrors = validateLoginForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -149,8 +148,7 @@ const AuthPage = () => {
       }, { withCredentials: true });
   
       // Check if login was successful
-      if (response.data.success) {
-        // Dispatch the addUser action to store user data in Redux
+      if (response.data.success) {  // Ensure this matches your backend response
         dispatch(addUser({
           user: response.data.user,
           token: response.data.token
@@ -159,29 +157,26 @@ const AuthPage = () => {
         // Show success toast notification
         toast.success("Login successful!");
   
-        // Clear the login form fields
         setEmailLogin("");
         setPasswordLogin("");
         setErrors({}); // Clear any form errors
   
-        // Navigate to the dashboard or home page
         navigate('/dashboard');
       } else {
         toast.error(`Login failed: ${response.data.message}`);
       }
     } catch (err) {
       if (err.response) {
-        // Display error message from the server response
         toast.error(err.response.data.message || 'Something went wrong');
       } else {
-        // Display a generic network error message
         toast.error('Network error. Please try again later.');
       }
     } finally {
-      setLoading(false); // Reset loading state
+      setLoading(false);
     }
-  };
-  
+};
+
+
   const handleInputChange = (e, type) => {
     const { name, value } = e.target;
     switch (type) {

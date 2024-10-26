@@ -24,11 +24,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    is_admin: {
+    isAdmin: { // Change from is_admin to isAdmin
         type: Boolean,
-        default: false, // Optional; no need for 'required' since it defaults
+        default: false,
     }
-});
+}, { timestamps: true });
 
 const UserModel = mongoose.model('User', userSchema);
 

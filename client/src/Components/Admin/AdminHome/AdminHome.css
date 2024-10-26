@@ -1,0 +1,80 @@
+/* Container for the entire page */
+.admin-home-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    background-color: #0f2444;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Admin Profile Box - Increase the size */
+.admin-profile-box {
+    width: 500px; /* Increased width */
+    background-color: #fff;
+    border-radius: 15px; /* Slightly more rounded corners */
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.1); /* Larger shadow for better emphasis */
+    padding: 50px; /* Increased padding */
+    text-align: center;
+}
+
+/* Profile Image - Increase the size */
+.admin-profile-img {
+    width: 150px; /* Increased size */
+    height: 150px; /* Increased size */
+    border-radius: 50%;
+    margin-bottom: 25px; /* More space below the image */
+    object-fit: cover;
+    border: 3px solid #007bff; /* Thicker border */
+}
+
+/* Admin Info */
+.admin-info-name {
+    font-size: 28px; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 15px; /* Increased space below the name */
+}
+
+.admin-info-email {
+    font-size: 20px; /* Increased font size */
+    color: #666;
+    margin-bottom: 25px; /* Increased space below the email */
+}
+
+/* Buttons */
+.admin-action-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px; /* Increased margin to give more space above the buttons */
+}
+
+.admin-dashboard-btn,
+.admin-logout-btn {
+    padding: 12px 25px; /* Increased padding */
+    font-size: 18px; /* Larger font size */
+    border-radius: 8px; /* Slightly more rounded corners */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.admin-dashboard-btn {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.admin-logout-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.admin-dashboard-btn:hover {
+    background-color: #0056b3;
+}
+
+.admin-logout-btn:hover {
+    background-color: #c82333;
+}

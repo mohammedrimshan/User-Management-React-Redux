@@ -1,4 +1,5 @@
-/* Container Styling */
+/* UpdateProfile.css */
+
 .update-profile-container {
   max-width: 600px;
   margin: 50px auto;
@@ -9,38 +10,37 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.update-profile-container h1 {
+.update-profile-title {
   text-align: center;
   font-size: 28px;
   margin-bottom: 20px;
   color: #333;
 }
 
-.update-profile-container p {
+.update-profile-user-id {
   text-align: center;
   font-size: 16px;
   margin-bottom: 10px;
   color: #666;
 }
 
-/* Form Styling */
-form {
+.update-profile-form {
   display: flex;
   flex-direction: column;
 }
 
-.form-group {
+.update-profile-form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.update-profile-label {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 5px;
   color: #333;
 }
 
-.form-group input {
+.update-profile-input {
   width: 100%;
   padding: 10px;
   font-size: 14px;
@@ -50,26 +50,23 @@ form {
   transition: border-color 0.3s;
 }
 
-.form-group input:focus {
+.update-profile-input:focus {
   border-color: #007bff;
 }
 
-/* Error Message Styling */
-.error {
+.update-profile-error {
   color: #ff4d4d;
   font-size: 14px;
   margin-top: 5px;
 }
 
-/* Success Message Styling */
-.success {
+.update-profile-success {
   color: #28a745;
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* Image Preview Styling */
-.image-preview {
+.update-profile-image-preview {
   display: block;
   max-width: 150px;
   margin: 15px auto;
@@ -78,8 +75,7 @@ form {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Button Styling */
-button {
+.update-profile-button {
   padding: 10px 20px;
   font-size: 16px;
   font-weight: 600;
@@ -90,10 +86,6 @@ button {
   cursor: pointer;
   transition: background-color 0.3s;
   margin-top: 10px;
-}
-
-button:hover {
-  background-color: #0056b3;
 }
 
 /* Success Alert */
